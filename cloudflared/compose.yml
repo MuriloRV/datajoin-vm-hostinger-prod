@@ -9,7 +9,7 @@ services:
     environment:
       TUNNEL_TOKEN: ${TUNNEL_TOKEN}
     networks:
-      - datajoin_net
+      - dj_network
     healthcheck:
       test: ["CMD", "cloudflared", "--version"]
       interval: 1m
@@ -17,9 +17,7 @@ services:
       retries: 3
 
 networks:
-  datajoin_net:
+  dj_network:
     external: true
-    # Network compartilhada com datajoin-app e datajoin-airflow.
-    # Cria com: docker network create datajoin_net
-    # (sera feito no passo de deploy do app; ate la, pode criar manualmente
-    #  pra subir o cloudflared sozinho e validar a conexao com a Cloudflare.)
+    # Network compartilhada com datajoin-app e datajoin-airflow (convenção
+    # do CLAUDE.md desses dois repos). Cria com: docker network create dj_network

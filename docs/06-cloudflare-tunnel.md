@@ -140,7 +140,7 @@ Para cada serviço público (portal, API, Airflow UI), criar uma route:
 `cloudflared` precisa estar na **mesma docker network** dos services que vai rotear, pra resolver `portal:3000` etc por DNS interno do Docker.
 
 Padrão neste setup:
-- Network compartilhada **externa**: `datajoin_net` (nome final a confirmar — combina com a usada nos composes do `datajoin-app` e `datajoin-airflow`, que hoje usam `dj_network`).
+- Network compartilhada **externa**: `dj_network` (nome final a confirmar — combina com a usada nos composes do `datajoin-app` e `datajoin-airflow`, que hoje usam `dj_network`).
 - `cloudflared/compose.yml` declara essa network como `external: true` e adiciona o container nela.
 - Quando o `datajoin-app` subir o `portal` na mesma network, o cloudflared resolverá `portal` → IP interno do container.
 

@@ -10,7 +10,7 @@ Na VM (`/opt/datajoin/cloudflared/`):
 
 ```bash
 # 1. Network compartilhada (ainda não criada nesta etapa, ver doc)
-docker network create datajoin_net 2>/dev/null || true
+docker network create dj_network 2>/dev/null || true
 
 # 2. .env com o token (NUNCA commit)
 cp .env.example .env
