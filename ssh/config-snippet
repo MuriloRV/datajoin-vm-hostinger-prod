@@ -1,0 +1,6 @@
+
+Host vm-hostinger
+  HostName <VM_IP>
+  User root
+  IdentityFile ~/.ssh/id_ed25519_vm_hostinger
+  IdentitiesOnly yes

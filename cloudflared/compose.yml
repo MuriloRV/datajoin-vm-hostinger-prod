@@ -1,0 +1,25 @@
+name: cloudflared
+
+services:
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    container_name: cloudflared
+    restart: unless-stopped
+    command: tunnel --no-autoupdate run
+    environment:
+      TUNNEL_TOKEN: ${TUNNEL_TOKEN}
+    networks:
+      - datajoin_net
+    healthcheck:
+      test: ["CMD", "cloudflared", "--version"]
+      interval: 1m
+      timeout: 10s
+      retries: 3
+
+networks:
+  datajoin_net:
+    external: true
+    # Network compartilhada com datajoin-app e datajoin-airflow.
+    # Cria com: docker network create datajoin_net
+    # (sera feito no passo de deploy do app; ate la, pode criar manualmente
+    #  pra subir o cloudflared sozinho e validar a conexao com a Cloudflare.)

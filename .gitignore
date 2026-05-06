@@ -1,0 +1,10 @@
+# Nunca commitar chaves privadas ou material sensível neste repo.
+# A chave privada vive em ~/.ssh/ na workstation, não aqui.
+*.pem
+*.key
+id_*
+id_ed25519_vm_hostinger
+id_ed25519_vm_hostinger.pub
+.env
+.env.*
+!.env.example
