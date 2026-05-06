@@ -52,8 +52,9 @@ ssh vm-hostinger "echo '$pub' | tee /home/deploy/.ssh/authorized_keys && chown d
 |---|---|
 | `DEPLOY_SSH_KEY` | conteúdo de `~/.ssh/id_ed25519_ci_deploy` (privada) |
 | `VM_HOST` | IP público da VM |
-| `VM_HOST_KEY` | output de `ssh-keyscan -t ed25519 <VM_IP>` (cola a linha completa) |
 | `APP_DOTENV` | conteúdo COMPLETO do `.env.prod` da app (preenchido a partir de `datajoin-app/.env.prod.example` com secrets reais) |
+
+(Não precisa `VM_HOST_KEY` — workflow roda `ssh-keyscan` inline pra TOFU, aceitável pro nosso threat model.)
 
 `APP_DOTENV` substitui o `.env` editado manualmente. Workflow cat'a esse secret na VM em `/opt/datajoin/app/.env` antes do `docker compose up`. Pra rotacionar uma senha: edita o secret no GH, próximo push redeploya com a senha nova.
 
