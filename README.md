@@ -30,3 +30,4 @@ A configuração é numerada na ordem de execução. Ao executar um passo, atual
 | 05 | Docker + Compose | ✓ feito | [`docs/05-docker.md`](docs/05-docker.md) |
 | 06 | Cloudflare Tunnel | ✓ feito (público hostnames pendentes p/ apps) | [`docs/06-cloudflare-tunnel.md`](docs/06-cloudflare-tunnel.md) |
 | 07 | k3s + Helm | ✓ feito | [`docs/07-k3s-helm.md`](docs/07-k3s-helm.md) |
+| 08 | Deploy user + CI SSH key (pra GitHub Actions) | parcial — VM configurada, falta SSH key + GH secrets | [`docs/08-deploy-user.md`](docs/08-deploy-user.md) |
